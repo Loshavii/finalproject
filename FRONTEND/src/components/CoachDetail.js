@@ -1,5 +1,5 @@
 
-import "./CoachDetail.css";
+import "./CSS/CoachDetail.css";
 import profile from './profile.jpg';
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';

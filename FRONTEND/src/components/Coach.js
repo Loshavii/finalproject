@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './Coach.css';
+import './CSS/Coach.css';
 import { Link } from 'react-router-dom';
 
 import profile from "./profile.jpg";
