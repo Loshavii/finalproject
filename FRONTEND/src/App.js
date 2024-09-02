@@ -8,6 +8,10 @@ import Login from './components/Login';
 import Coach from './components/Coach';
 import CoachDetail from './components/CoachDetail';
 import RegisterSelectPage from './components/RegisterSelectPage';
+import ProfileSetup from './components/ProfileSetup';
+
+
+
 
 function App() {
   return (
@@ -21,6 +25,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/coach" element={<Coach />} />
           <Route path="/coach/:name" element={<CoachDetail />} />
+          <Route path="/profile-setup" element={<ProfileSetup />} />
+
         </Routes>
       </div>
     </Router>

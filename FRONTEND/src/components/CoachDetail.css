@@ -1,230 +1,3 @@
-/* 
-    .coach-detail-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #f4f7f9;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.coach-left {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.coach-image {
-  width: 100%;
-  max-width: 200px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.quote {
-  background-color: #1c1c1c;
-  color: white;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  font-style: italic;
-}
-
-.coach-right {
-  flex: 2;
-  margin-left: 20px;
-}
-
-.coach-name {
-  font-size: 1.8em;
-  font-weight: bold;
-}
-
-.coach-title {
-  font-size: 1.2em;
-  color: #6c757d;
-  margin-bottom: 20px;
-}
-
-.bio, .favourite-brands, .goals, .pain-points {
-  margin-bottom: 20px;
-}
-
-h3 {
-  font-size: 1.3em;
-  margin-bottom: 10px;
-  color: #495057;
-}
-
-p, li {
-  font-size: 1em;
-  color: #343a40;
-}
-
-.brands-list span {
-  display: inline-block;
-  background-color: #e9ecef;
-  padding: 5px 10px;
-  margin: 5px;
-  border-radius: 5px;
-  font-size: 0.9em;
-}
-
-ul {
-  list-style-type: disc;
-  padding-left: 20px;
-}
-
-ul li {
-  margin-bottom: 10px;
-} */
-
-
-
-/* body {
-  background-color: #0d0d0d; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-.profile-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: #229b22; 
-  padding: 20px;
-  border-radius: 15px;
-  max-width: 900px;
-  margin: 0 auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 1s ease-in-out;
-}
-
-.left-side {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30%;
-}
-
-.profile-picture img {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.profile-picture img:hover {
-  transform: scale(1.1);
-}
-
-h2, h3 {
-  margin: 0;
-  text-align: center;
-  color: #ffff00; 
-}
-
-.details {
-  margin-top: 20px;
-  text-align: left;
-  color: #7cfc00; 
-
-.details p {
-  margin: 5px 0;
-}
-
-.right-side {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  width: 65%;
-}
-
-.card {
-  background-color: #7cfc00; 
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.card h4 {
-  margin: 0 0 10px;
-  color: #0d0d0d; 
-}
-
-.card p {
-  margin: 0;
-  color: #0d0d0d; 
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  background-color: #ffff00; 
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
-.buttons-row {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.follow-button, .send-request-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: #fff;
-  font-size: 16px;
-}
-
-.follow-button {
-  background-color: #7cfc00;
-}
-
-.send-request-button {
-  background-color: #229b22; 
-}
-
-.profile-setup-form {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #ffff00; 
-  border-radius: 5px;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-} */
-
-
-
-
 
 
 .profile-card {
@@ -336,12 +109,13 @@ h2, h3 {
 }
 
 .follow-button, .send-request-button {
-  padding: 10px 20px;
+  padding: 7px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   color: #fff;
   font-size: 16px;
+  margin: 0 10px;
 }
 
 .follow-button {
@@ -349,7 +123,7 @@ h2, h3 {
 }
 
 .send-request-button {
-  background-color: #229b22; /* Darker green */
+  background-color: #7cfc00; /* Darker green */
 }
 
 .profile-setup-form {
@@ -359,7 +133,11 @@ h2, h3 {
   border-radius: 5px;
   animation: fadeIn 0.5s ease-in-out;
 }
-
+.follow-button:hover, .send-request-button:hover {
+  background-color: #229b22; /* Hover effect background color */
+  transform: translateY(-2px); /* Add a slight upward movement on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow on hover */
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
