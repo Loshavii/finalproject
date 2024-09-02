@@ -1,0 +1,81 @@
+
+    .coach-detail-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f4f7f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.coach-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.coach-image {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.quote {
+  background-color: #1c1c1c;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-style: italic;
+}
+
+.coach-right {
+  flex: 2;
+  margin-left: 20px;
+}
+
+.coach-name {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.coach-title {
+  font-size: 1.2em;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+.bio, .favourite-brands, .goals, .pain-points {
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+p, li {
+  font-size: 1em;
+  color: #343a40;
+}
+
+.brands-list span {
+  display: inline-block;
+  background-color: #e9ecef;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}

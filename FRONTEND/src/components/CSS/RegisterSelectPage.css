@@ -1,0 +1,51 @@
+.register-select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #0d0d0d;
+    color: #ffff00;
+    text-align: center;
+  }
+  
+  .register-select-heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .register-select-buttons {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .register-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .coach-button {
+    background-color: #229b22;
+    color: #ffff00;
+  }
+  
+  .coach-button:hover {
+    background-color: #7cfc00;
+    transform: scale(1.05);
+  }
+  
+  .user-button {
+    background-color: #7cfc00;
+    color: #0d0d0d;
+  }
+  
+  .user-button:hover {
+    background-color: #229b22;
+    transform: scale(1.05);
+  }
+  
