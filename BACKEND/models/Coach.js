@@ -1,6 +1,8 @@
 // backend/models/Coach.js
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const authenticate = require('../middleware/authenticate'); // Authentication middleware
+const authorizeRole = require('../middleware/authorizeRole');
 
 const coachSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
@@ -9,9 +11,17 @@ const coachSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     specialization: { type: String }, // Example additional field
-    experience: { type: Number }, // Years of experience
+    experience: { type: Number },
+    role: { type: String, enum: ['admin', 'user', 'coach'], default: 'coach' }, // Years of experience
     // Add more coach-specific fields as needed
-}, { timestamps: true });
+},{ timestamps: true });
+
+
+
+
+
+
+
 
 // Password hash middleware
 coachSchema.pre('save', async function(next) {

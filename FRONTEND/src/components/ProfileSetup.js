@@ -226,7 +226,7 @@ function ProfileSetup() {
         />
       </div>
 
-      {/* <button className="submit-button" type="submit">Save Profile</button> */}
+     
       <div className="button-group">
         <button type="submit">Save Profile</button>
         <button type="button" className="update-button">Update Profile</button>

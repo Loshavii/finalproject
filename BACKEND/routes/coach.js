@@ -7,6 +7,11 @@ const jwt = require('jsonwebtoken');
 const authenticate = require('../middleware/authenticate');
 const authorize = require('../middleware/authorize');
 
+
+router.get('/coach-only', authenticate, authorize(['coach']), (req, res) => {
+    res.json({ message: 'Welcome, Coach!' });
+});
+
 // Register Coach Endpoint
 router.post('/register', async (req, res) => {
     try {
