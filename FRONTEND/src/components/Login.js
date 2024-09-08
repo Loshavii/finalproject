@@ -1,6 +1,5 @@
 
 
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './CSS/Login.css';
@@ -16,6 +15,7 @@ function Login() {
     });
     const [errors, setErrors] = useState({});
     const [errorMessage, setErrorMessage] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const navigate = useNavigate(); 
 
@@ -48,16 +48,29 @@ function Login() {
         e.preventDefault();
         if (!validateForm()) return;
 
+        setIsSubmitting(true); // Disable the button
+
         try {
             console.log('Form data:', formData);
 
+            // Assuming response data contains token, id, and role
             const response = await axios.post('http://localhost:2003/api/users/login', formData);
+            const { token, id, role } = response.data;
+
+            // Store token, id, and role in sessionStorage
+            sessionStorage.setItem('token', token);
+            sessionStorage.setItem('id', id);
+            sessionStorage.setItem('role', role);
+
             setErrorMessage('');
             console.log('Login successful:', response.data);
 
+            // Navigate to another route after successful login
             navigate('/coach');
         } catch (error) {
             setErrorMessage(error.response?.data?.message || 'Invalid login credentials.');
+        } finally {
+            setIsSubmitting(false); // Re-enable the button
         }
     };
 
@@ -74,6 +87,7 @@ function Login() {
                             value={formData.email}
                             onChange={handleInputChange}
                         />
+                        {errors.email && <small className="error">{errors.email}</small>}
                     </div>
                     <div className="form-group">
                         <input
@@ -86,8 +100,12 @@ function Login() {
                         <button type="button" onClick={togglePassword} className="password-toggle-button">
                             <FontAwesomeIcon icon={passwordShown ? faEye : faEyeSlash} />
                         </button>
+                        {errors.password && <small className="error">{errors.password}</small>}
                     </div>
-                    <button type="submit" className="login-button">Login</button>
+                    {errorMessage && <div className="error-message">{errorMessage}</div>}
+                    <button type="submit" className="login-button" disabled={isSubmitting}>
+                        {isSubmitting ? 'Logging in...' : 'Login'}
+                    </button>
                 </form>
             </div>
         </div>

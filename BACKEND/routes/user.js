@@ -36,15 +36,25 @@ router.post('/register', async (req, res) => {
     }
 });
 
-// Login User Endpoint
+
+
+
 router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
 
         if (user && await bcrypt.compare(password, user.password)) {
-            const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-            res.status(200).json({ token, message: 'Login successful' });
+            // Create a JWT token
+            const token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+            // Send token, id, and role in the response
+            res.status(200).json({
+                token,
+                id: user._id,
+                role: user.role,
+                message: 'Login successful'
+            });
         } else {
             res.status(400).json({ error: 'Invalid credentials' });
         }
