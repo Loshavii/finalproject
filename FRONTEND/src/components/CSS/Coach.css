@@ -93,7 +93,7 @@ body {
   }
   
   .coach-card {
-    background-color: #229b22; /* Updated to match palette */
+    background-color: #229b22 !important; /* Updated to match palette */
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 15px;

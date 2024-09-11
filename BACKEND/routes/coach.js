@@ -12,38 +12,7 @@ router.get('/coach-only', authenticate, authorize(['coach']), (req, res) => {
     res.json({ message: 'Welcome, Coach!' });
 });
 
-// Register Coach Endpoint
-// router.post('/register', async (req, res) => {
-//     try {
-//         const { firstName, lastName, username, email, password, specialization, experience } = req.body;
 
-//         const coachExists = await Coach.findOne({ email });
-//         if (coachExists) {
-//             return res.status(400).json({ error: 'Coach already exists' });
-//         }
-
-//         const newCoach = new Coach({
-//             firstName,
-//             lastName,
-//             username,
-//             email,
-//             password,
-//             specialization,
-//             experience
-//         });
-
-//         await newCoach.save();
-
-//         const token = jwt.sign({ id: newCoach._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-//         res.status(201).json({ token, message: 'Registration successful' });
-//     } catch (err) {
-//         console.error('Error registering coach:', err.message);
-//         res.status(500).json({ error: 'Error registering coach' });
-//     }
-// });
-
-// Register Coach Endpoint
 router.post('/register', async (req, res) => {
     try {
         const { firstName, lastName, username, email, password, specialization, experience, role } = req.body;
@@ -79,30 +48,104 @@ router.post('/register', async (req, res) => {
 });
 
 // Login Coach Endpoint
+// router.post('/login', async (req, res) => {
+//     try {
+//         const { email, password } = req.body;
+//         const coach = await Coach.findOne({ email });
+
+//         if (coach && await bcrypt.compare(password, coach.password)) {
+//             // Create a JWT token including id and role (assuming the Coach model has a role field)
+//             const token = jwt.sign({ id: coach._id, role: coach.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+//             // Respond with token, id, and role
+//             res.status(200).json({
+//                 token,
+//                 id: coach._id,
+//                 role: coach.role, 
+//                 message: 'Login successful'
+//             });
+//         } else {
+//             res.status(400).json({ error: 'Invalid credentials' });
+//         }
+//     } catch (err) {
+//         console.error('Error logging in coach:', err.message);
+//         res.status(500).json({ error: 'Error logging in coach' });
+//     }
+// });
+
+// router.post('/login', async (req, res) => {
+//     try {
+//         const { email, password } = req.body;
+//         console.log("Login request received for:", email); // Debugging
+        
+//         const coach = await Coach.findOne({ email });
+        
+//         if (!coach) {
+//             return res.status(400).json({ error: 'Invalid credentials' });
+//         }
+        
+//         // Check if passwords match
+//         const isPasswordMatch = await bcrypt.compare(password, coach.password);
+//         if (!isPasswordMatch) {
+//             return res.status(400).json({ error: 'Invalid credentials' });
+//         }
+        
+//         // Create a JWT token including id and role
+//         const token = jwt.sign({ id: coach._id, role: coach.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
+//         console.log("Token generated:", token); // Debugging
+
+//         // Respond with token, id, and role
+//         res.status(200).json({
+//             token,
+//             id: coach._id,
+//             role: coach.role, 
+//             message: 'Login successful'
+//         });
+//     } catch (err) {
+//         console.error('Error logging in coach:', err.message);
+//         res.status(500).json({ error: 'Error logging in coach' });
+//     }
+// });
+
+
 router.post('/login', async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const coach = await Coach.findOne({ email });
-
-        if (coach && await bcrypt.compare(password, coach.password)) {
-            // Create a JWT token including id and role (assuming the Coach model has a role field)
-            const token = jwt.sign({ id: coach._id, role: coach.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-            // Respond with token, id, and role
-            res.status(200).json({
-                token,
-                id: coach._id,
-                role: coach.role, 
-                message: 'Login successful'
-            });
-        } else {
-            res.status(400).json({ error: 'Invalid credentials' });
-        }
+      const { email, password } = req.body;
+  
+      console.log("Login request received for:", email); // Debugging
+  
+      if (!email || !password) {
+        return res.status(400).json({ error: 'Email and password are required' });
+      }
+  
+      const coach = await Coach.findOne({ email });
+  
+      if (!coach) {
+        return res.status(400).json({ error: 'Invalid credentials' });
+      }
+  
+      // Check if passwords match
+      const isPasswordMatch = await bcrypt.compare(password, coach.password);
+      if (!isPasswordMatch) {
+        return res.status(400).json({ error: 'Invalid credentials' });
+      }
+  
+      // Create a JWT token including id and role
+      const token = jwt.sign({ id: coach._id, role: coach.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
+      console.log("Token generated:", token); // Debugging
+  
+      // Respond with token, id, and role
+      res.status(200).json({
+        token,
+        id: coach._id,
+        role: coach.role,
+        message: 'Login successful'
+      });
     } catch (err) {
-        console.error('Error logging in coach:', err.message);
-        res.status(500).json({ error: 'Error logging in coach' });
+      console.error('Error logging in coach:', err.message);
+      res.status(500).json({ error: 'Error logging in coach' });
     }
-});
+  });
 
 module.exports = router;
 

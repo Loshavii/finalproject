@@ -9,6 +9,7 @@ import Coach from './components/Coach';
 import CoachDetail from './components/CoachDetail';
 import RegisterSelectPage from './components/RegisterSelectPage';
 import ProfileSetup from './components/ProfileSetup';
+import AdminDashboard from './components/AdminDashboard';
 
 
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/register-user" element={<RegisterUser />} />
           <Route path="/register-coach" element={<RegisterCoach />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
           <Route path="/coach" element={<Coach />} />
           <Route path="/coach/:name" element={<CoachDetail />} />
           <Route path="/profile-setup" element={<ProfileSetup />} />
